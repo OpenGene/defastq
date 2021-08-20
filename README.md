@@ -9,7 +9,13 @@ This binary is only for Linux systems: http://opengene.org/defastq/defastq
 wget http://opengene.org/defastq/defastq
 chmod a+x ./defastq
 ```
-## or compile from source
+## or compile from source (depend on libdeflate and libisal)
+### Step 1: download and build libisal
+See https://github.com/spdk/isa-l
+### step 2: download and build libdeflate
+See https://github.com/ebiggers/libdeflate
+### step 3: download and build defastq
+Please make sure that the fold `isa-l`, `libdeflate` and `defastq` are in the same directory.
 ```shell
 # get source (you can also use browser to download from master or releases)
 git clone https://github.com/OpenGene/defastq.git
