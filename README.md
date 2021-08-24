@@ -11,9 +11,9 @@ chmod a+x ./defastq
 ```
 ## or compile from source (depend on libdeflate and libisal)
 ### Step 1: download and build libisal
-See https://github.com/spdk/isa-l
+See https://github.com/intel/isa-l_crypto
 ```shell
-git clone https://github.com/spdk/isa-l.git
+git clone https://github.com/intel/isa-l_crypto.git
 cd isa-l
 ./autogen.sh
 ./configure
