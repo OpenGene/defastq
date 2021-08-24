@@ -14,11 +14,11 @@ CC = g++
 CFLAGS = -std=c++11 -g -o3 -I${DIR_INC}
 
 ${BIN_TARGET}:${OBJ}
-	$(CC) $(OBJ) ../isa-l/.libs/libisal.a ../libdeflate/libdeflate.a -lpthread -o $@
+	$(CC) $(OBJ) -lisal -ldeflate -lpthread -o $@
 
 static:${OBJ}
 	$(CC) $(OBJ) -static ../isa-l/.libs/libisal.a ../libdeflate/libdeflate.a -lpthread -o ${BIN_TARGET}
-    
+
 ${DIR_OBJ}/%.o:${DIR_SRC}/%.cpp make_obj_dir
 	$(CC) $(CFLAGS) -O3 -c  $< -o $@
 

@@ -12,10 +12,25 @@ chmod a+x ./defastq
 ## or compile from source (depend on libdeflate and libisal)
 ### Step 1: download and build libisal
 See https://github.com/spdk/isa-l
+```shell
+git clone https://github.com/spdk/isa-l.git
+cd isa-l
+./autogen.sh
+./configure
+make
+sudo make install
+```
+
 ### step 2: download and build libdeflate
 See https://github.com/ebiggers/libdeflate
+```shell
+git clone https://github.com/ebiggers/libdeflate.git
+cd libdeflate
+make
+sudo make install
+```
+
 ### step 3: download and build defastq
-Please make sure that the fold `isa-l`, `libdeflate` and `defastq` are in the same directory.
 ```shell
 # get source (you can also use browser to download from master or releases)
 git clone https://github.com/OpenGene/defastq.git
@@ -27,6 +42,7 @@ make
 # Install
 sudo make install
 ```
+If you want to create static build using  `make static`, please make sure that the fold `isa-l`, `libdeflate` and `defastq` are in the same directory.
 
 # all options
 ```
