@@ -47,10 +47,8 @@ SingleEndProcessor::~SingleEndProcessor() {
 }
 
 bool SingleEndProcessor::process(){
-
     mInputList = new SingleProducerSingleConsumerList<SimpleRead*>();
 
-    std::thread producer(std::bind(&SingleEndProcessor::readerTask, this));
 
     // plus one undetermined
     mOutputNum = mSampleSize;
@@ -80,6 +78,8 @@ bool SingleEndProcessor::process(){
         else
             mConfigs[t] -> addTask(mOptions->undecodedFileName, mOutputLists[i], false, true);
     }
+
+    std::thread producer(std::bind(&SingleEndProcessor::readerTask, this));
 
     std::thread** writerThreads = new thread*[mWriterThreadNum];
     for(int t=0; t<mWriterThreadNum; t++){

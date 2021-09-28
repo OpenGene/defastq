@@ -126,7 +126,7 @@ void FastqReader::readToBuf() {
 	}
 	mBufUsedLen = 0;
 
-	if(bufferFinished()) {
+	if(bufferFinished() && mBufDataLen>0) {
 		if(mFastqBuf[mBufDataLen-1] != '\n')
 			mHasNoLineBreakAtEnd = true;
 	}

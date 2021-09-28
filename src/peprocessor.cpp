@@ -52,9 +52,6 @@ bool PairedEndProcessor::process(){
     mRead1InputList = new SingleProducerSingleConsumerList<SimpleRead*>();
     mRead2InputList = new SingleProducerSingleConsumerList<SimpleRead*>();
 
-    std::thread reader1(std::bind(&PairedEndProcessor::reader1Task, this));
-    std::thread reader2(std::bind(&PairedEndProcessor::reader2Task, this));
-
     // plus two undetermined (R1 and R2)
     mOutputNum = mSampleSize*2;
     if(!mOptions->discardUndecoded)
@@ -92,6 +89,10 @@ bool PairedEndProcessor::process(){
         else
             mConfigs[t] -> addTask(mOptions->undecodedFileName + suffix, mOutputLists[i], isRead2, true);
     }
+
+
+    std::thread reader1(std::bind(&PairedEndProcessor::reader1Task, this));
+    std::thread reader2(std::bind(&PairedEndProcessor::reader2Task, this));
 
     std::thread** writerThreads = new thread*[mWriterThreadNum];
     for(int t=0; t<mWriterThreadNum; t++){
