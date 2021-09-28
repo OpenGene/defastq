@@ -25,7 +25,7 @@ SOFTWARE.
 #ifndef COMMON_H
 #define COMMON_H
 
-#define VERSION_NUM "0.3.0"
+#define VERSION_NUM "0.3.1"
 
 #define _DEBUG false
 
